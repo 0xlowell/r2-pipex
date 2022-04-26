@@ -1,27 +1,40 @@
 # r2-pipex
-Code the Pipex program : the discovery in detail and by programming of a 
-UNIX mechanism that you already know.
+__________________
 
-Your objective is to code the Pipex program.
+*Code the Pipex program : the discovery in detail and by programming of a 
+UNIX mechanism that you already know.*
+
+Mimic the 'pipe' => | <= command in shell terminal.
+
+Basically, 
+
+* the 'pipe' will read from input files
+* use it with 1st command (ex: "ls" command of input file)
+* send the result of 1st command(ls result) 
+* as input to the 2nd command, use it (ex: "wc" command, of "ls" output)
+* then write it in output file
+
+__________________
+
 It should be executed in this way:
-
+```
 * $> ./pipex file1 cmd1 cmd2 file2
-
-Just in case: file1 and file2 are file names, cmd1 and cmd2 are shell commands
-with their parameters. The execution of the pipex program should do the same
+```
+Just in case: *file1* and *file2* are **file names**, *cmd1* and *cmd2* are **shell commands**
+with **their parameters**. The execution of the pipex program should do the same
 as the next shell command:
-
+```
  * $> < file1 cmd1 | cmd2 > file2
-
+```
 example :
-
+```
  * $> ./pipex infile "ls" "wc" outfile
-
+```
 need to be equal to :
-
+```
  * < file1 ls | wc > file2
-
-______________________________________________________________________
+```
+__________________
 Pseudocode : 
 
 * ./pipex file1 cmd1 cmd2 file2
@@ -38,15 +51,26 @@ av[4] = files2 (WRITE in this output)
 
 * Use open() for our input file descriptor (fd) and output file descriptor
 
-Stored in int pipex.in, our fd 3 and 4
+
 ```C
 open (file1, READ);
 open (file2, WRITE);
 ```
+
+Stored in *(int)pipex.in* and *(int)pipex.out*
+to use it later, in CHILD process.
+
+*pipex.in* in 1st CHILD process: now our file1 is ready to be readed.
+
+*pipex.out* in 2nd CHILD process: our file2 is ready to be written in.
+
+__________________
+
+
 file1 is open with READ
 
 
-______________________________________________________________________
+__________________
 
 
 
