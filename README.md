@@ -91,6 +91,20 @@ Same as the first_child_process, set up to communicate stdout to file2
 
 __________________
 
+## Test
 
-tips: error gestion print in stderr 
-* example: fprintf(stderr, "pipex.cmd1= %s\n", pipex.cmd);
+Because "ls" wont use file1 data:
+
+```./pipex file1 cat "say Quackquack. Bonjour forty two. " file2```
+
+This one, wont write in file2 and wont give result of cat, but we give you a surprise. Sound on.
+
+## tips
+
+* error gestion print in stderr 
+example: fprintf(stderr, "pipex.cmd1= %s\n", pipex.cmd);
+
+* Shell command
+*env*
+*ps -aux*
+
