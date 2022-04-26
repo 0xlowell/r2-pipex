@@ -48,9 +48,12 @@ __________________
 open (file1, READ);
 open (file2, WRITE);
 ```
-* Stored in *(int)pipex.in* and *(int)pipex.out* to use it later, in CHILD process.
-*pipex.in* in 1st CHILD process: now our file1 is ready to be readed.
-*pipex.out* in 2nd CHILD process: our file2 is ready to be written in.
+* Stored in *(int)pipex.in* and *(int)pipex.out* 
+  
+  *pipex.in*  to READ
+  
+  *pipex.out* to WRITE 
+
 * Standard input (stdin) is by default set at 0, Standard output (stdout) at 1, Standard error (stderr)
 3. Check for error about open()
 4. Use ```pipe()``` to create 2 fd who will be used for CHILD's process
