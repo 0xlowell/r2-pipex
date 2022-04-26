@@ -47,10 +47,21 @@ Pipex program:
 * ac == 5
 __________________
 Pseudocode : 
-* Check if there is 5 arguments
-* Use open() for our input file descriptor (fd) and output file descriptor 
-* Check for error about open()
-* Use pipe() 
+
+1. Check if there is 5 arguments
+2. Use ```open()``` for input file descriptor (fd) and output file descriptor 
+* Standard input (stdin) is by default set at 0, Standard output (stdout) at 1, Standard error (stderr)
+3. Check for error about open()
+4. Use ```pipe()``` to create 2 fd who will be used for CHILD's process
+* fd[0] to READ fd[1] to WRITE *
+5. Get the ```PATH="..."``` from environnement, split it with ':' 
+* You will have a char** with ```char[0] = "/Users/.../bin"```, ```char[1] = "/usr/local/bin"``` redirecting to command already fonctionnal in shell (type "env" in terminal to see PATH line : PATH=/Users/...../.brew/bin:/usr/local/bin:...)
+6. Use ```fork()``` for 1st CHILD process: if success, launch FIRST_CHILD_PROCESS
+* Store PID of fork into a pid_t type (to see PID running on your computer, type ```ps -aux``` in term)
+7. Use ```fork()``` for 2st CHILD process: if success, launch SECOND_CHILD_PROCESS
+* Store PID of fork into a pid_t type (to see PID running on your computer, type ```ps -aux``` in term)
+8. FIRST_CHILD_PROCESS
+
 
 
 ```C
