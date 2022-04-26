@@ -1,5 +1,4 @@
 # r2-pipex
-__________________
 
 *Code the Pipex program : the discovery in detail and by programming of a 
 UNIX mechanism that you already know.*
@@ -35,21 +34,23 @@ need to be equal to :
  * < file1 ls | wc > file2
 ```
 __________________
-Pseudocode : 
-
+Pipex program:
+```
 * ./pipex file1 cmd1 cmd2 file2
+```
+* av[0] = ./pipex (program, as PARENT process)
+* av[1] = file1 (READ from this input)
+* av[2] = cmd1 (we need connect it to the PATH in our env to launch it, as 1st CHILD process)
+* av[3] = cmd2 (we need connect it to the PATH in our env to launch it, as 2nd CHILD process)
+* av[4] = files2 (WRITE in this output)
 
-av[0] = ./pipex (program, as PARENT process)
-
-av[1] = file1 (READ from this input)
-
-av[2] = cmd1 (we need connect it to the PATH in our env to launch it, as 1st CHILD process)
-
-av[3] = cmd2 (we need connect it to the PATH in our env to launch it, as 2nd CHILD process)
-
-av[4] = files2 (WRITE in this output)
-
-* Use open() for our input file descriptor (fd) and output file descriptor
+* ac == 5
+__________________
+Pseudocode : 
+* Check if there is 5 arguments
+* Use open() for our input file descriptor (fd) and output file descriptor 
+* Check for error about open()
+* Use pipe() 
 
 
 ```C
