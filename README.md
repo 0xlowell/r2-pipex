@@ -24,12 +24,17 @@ need to be equal to :
 ______________________________________________________________________
 Pseudocode : 
 
-./pipex file1 cmd1 cmd2 file2
-av[0] = ./pipex
-av[1] = file1
-av[2] = cmd1
-av[3] = cmd2
-av[4] = files2
+* ./pipex file1 cmd1 cmd2 file2
+
+av[0] = ./pipex (program, as PARENT process)
+
+av[1] = file1 (READ from this input)
+
+av[2] = cmd1 (we need connect it to the PATH in our env to launch it, as 1st CHILD process)
+
+av[3] = cmd2 (we need connect it to the PATH in our env to launch it, as 2nd CHILD process)
+
+av[4] = files2 (WRITE in this output)
 
 * Use open() for our input file descriptor (fd) and output file descriptor
 
