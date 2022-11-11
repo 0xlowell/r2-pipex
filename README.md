@@ -1,5 +1,5 @@
 # r2-pipex
-
+# [![lzima's 42 pipex Score](https://badge42.vercel.app/api/v2/cl1nk4f8f004009lb75fyii0c/project/2455829)](https://github.com/JaeSeoKim/badge42)
 *Code the Pipex program : the discovery in detail and by programming of a 
 UNIX mechanism that you already know.*
 
